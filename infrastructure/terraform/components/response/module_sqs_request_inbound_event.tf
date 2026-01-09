@@ -1,4 +1,4 @@
-module "sqs_inbound_event" {
+module "sqs_request_inbound_event" {
   source = "https://github.com/NHSDigital/nhs-notify-shared-modules/releases/download/v2.0.20/terraform-sqs.zip"
 
   aws_account_id = var.aws_account_id
@@ -6,7 +6,7 @@ module "sqs_inbound_event" {
   environment    = var.environment
   project        = var.project
   region         = var.region
-  name           = "inbound-event"
+  name           = "request-inbound-event"
 
   sqs_kms_key_arn = module.kms.key_arn
 
@@ -14,10 +14,10 @@ module "sqs_inbound_event" {
 
   create_dlq = true
 
-  sqs_policy_overload = data.aws_iam_policy_document.sqs_inbound_event.json
+  sqs_policy_overload = data.aws_iam_policy_document.sqs_request_inbound_event.json
 }
 
-data "aws_iam_policy_document" "sqs_inbound_event" {
+data "aws_iam_policy_document" "sqs_request_inbound_event" {
   statement {
     sid    = "AllowEventBridgeToSendMessage"
     effect = "Allow"
@@ -32,7 +32,7 @@ data "aws_iam_policy_document" "sqs_inbound_event" {
     ]
 
     resources = [
-      "arn:aws:sqs:${var.region}:${var.aws_account_id}:${var.project}-${var.environment}-${var.component}-inbound-event-queue"
+      "arn:aws:sqs:${var.region}:${var.aws_account_id}:${var.project}-${var.environment}-${var.component}-request-inbound-event-queue"
     ]
 
     condition {

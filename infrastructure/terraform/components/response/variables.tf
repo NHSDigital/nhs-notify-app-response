@@ -86,12 +86,6 @@ variable "parent_acct_environment" {
   default     = "main"
 }
 
-variable "parent_eventbus_environment" {
-  type        = string
-  description = "Name of the environment responsible for the eventbus resources used, affects things like eventbus arns and names. Useful for named dev environments"
-  default     = "main"
-}
-
 variable "queue_batch_size" {
   type        = number
   description = "maximum number of queue items to process"
