@@ -179,5 +179,4 @@ jobs:
       python_version: "${{ needs.metadata.outputs.python_version }}"
       terraform_version: "${{ needs.metadata.outputs.terraform_version }}"
       version: "${{ needs.metadata.outputs.version }}"
-      pr_number: ${{ needs.metadata.outputs.pr_number }}
     secrets: inherit
