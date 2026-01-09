@@ -62,3 +62,20 @@ variable "force_lambda_code_deploy" {
   description = "If the lambda package in s3 has the same commit id tag as the terraform build branch, the lambda will not update automatically. Set to True if making changes to Lambda code from on the same commit for example during development"
   default     = false
 }
+
+variable "eventbus_account_id" {
+  type        = string
+  description = "The AWS Account ID for the event bus"
+}
+
+variable "queue_batch_size" {
+  type        = number
+  description = "maximum number of queue items to process"
+  default     = 10
+}
+
+variable "queue_batch_window_seconds" {
+  type        = number
+  description = "maximum time in seconds between processing events"
+  default     = 10
+}
