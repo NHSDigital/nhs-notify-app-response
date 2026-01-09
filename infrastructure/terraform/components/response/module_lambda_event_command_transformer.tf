@@ -70,19 +70,4 @@ data "aws_iam_policy_document" "lambda_event_command_transformer" {
       module.sqs_inbound_event.sqs_queue_arn,
     ]
   }
-
-  statement {
-    sid    = "SQSPermissionsCommandQueue"
-    effect = "Allow"
-
-    actions = [
-      "sqs:SendMessage",
-      "sqs:GetQueueAttributes",
-      "sqs:GetQueueUrl"
-    ]
-
-    resources = [
-      module.sqs_command.sqs_queue_arn,
-    ]
-  }
 }
