@@ -11,6 +11,10 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: write
+
 jobs:
   metadata:
     name: "Set CI/CD metadata"
