@@ -17,6 +17,11 @@ variable "aws_account_id" {
   description = "The AWS Account ID (numeric)"
 }
 
+variable "shared_infra_account_id" {
+  type        = string
+  description = "The AWS Shared Infra Account ID (numeric)"
+}
+
 variable "region" {
   type        = string
   description = "The AWS Region"
@@ -38,7 +43,7 @@ variable "group" {
 variable "component" {
   type        = string
   description = "The variable encapsulating the name of this component"
-  default     = "examplecomponent"
+  default     = "response"
 }
 
 variable "default_tags" {
@@ -57,8 +62,43 @@ variable "log_retention_in_days" {
   default     = 0
 }
 
+variable "log_level" {
+  type        = string
+  description = "The log level to be used in lambda functions within the component. Any log with a lower severity than the configured value will not be logged: https://docs.python.org/3/library/logging.html#levels"
+  default     = "INFO"
+}
+
 variable "force_lambda_code_deploy" {
   type        = bool
   description = "If the lambda package in s3 has the same commit id tag as the terraform build branch, the lambda will not update automatically. Set to True if making changes to Lambda code from on the same commit for example during development"
   default     = false
+}
+
+variable "eventbus_account_id" {
+  type        = string
+  description = "The AWS Account ID for the event bus"
+}
+
+variable "kms_deletion_window" {
+  type        = string
+  description = "When a kms key is deleted, how long should it wait in the pending deletion state?"
+  default     = "30"
+}
+
+variable "parent_acct_environment" {
+  type        = string
+  description = "Name of the environment responsible for the acct resources used, affects things like DNS zone. Useful for named dev environments"
+  default     = "main"
+}
+
+variable "queue_batch_size" {
+  type        = number
+  description = "maximum number of queue items to process"
+  default     = 10
+}
+
+variable "queue_batch_window_seconds" {
+  type        = number
+  description = "maximum time in seconds between processing events"
+  default     = 10
 }
