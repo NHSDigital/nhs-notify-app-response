@@ -27,7 +27,7 @@ jobs:
             --releaseVersion "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" \
             --targetWorkflow "dispatch-deploy-dynamic-env.yaml" \
             --targetEnvironment "pr${{ github.event.number }}" \
-            --targetComponent "callbacks" \
+            --targetComponent "response" \
             --targetAccountGroup "nhs-notify-app-response-dev" \
             --terraformAction "destroy" \
             --overrideProjectName "nhs" \
