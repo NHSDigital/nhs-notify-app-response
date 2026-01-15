@@ -35,7 +35,7 @@ jobs:
       skip_trivy_package: ${{ steps.skip_trivy.outputs.skip_trivy_package }}
     steps:
       - name: "Checkout code"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: "Set CI/CD variables"
         id: variables
         run: |
@@ -152,7 +152,7 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.metadata.outputs.does_pull_request_exist == 'true' || (github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'reopened'))
     steps:
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v6
       - name: Trigger dynamic environment creation
         env:
           APP_PEM_FILE: ${{ secrets.APP_PEM_FILE }}
