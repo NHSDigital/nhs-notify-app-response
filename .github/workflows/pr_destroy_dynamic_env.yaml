@@ -28,8 +28,8 @@ jobs:
             --targetWorkflow "dispatch-deploy-dynamic-env.yaml" \
             --targetEnvironment "pr${{ github.event.number }}" \
             --targetComponent "callbacks" \
-            --targetAccountGroup "nhs-notify-client-callbacks-dev" \
+            --targetAccountGroup "nhs-notify-app-response-dev" \
             --terraformAction "destroy" \
             --overrideProjectName "nhs" \
-            --overrideRoleName "nhs-main-acct-client-callbacks-github-deploy" \
+            --overrideRoleName "nhs-main-acct-app-response-github-deploy" \
             --overrides "branch_name=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
