@@ -1,5 +1,4 @@
 {
-  "//": "PLEASE UPDATE THE NAME AND WORKSPACES APPROPRIATELY.",
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
     "@types/jest": "^29.5.14",
@@ -38,7 +37,8 @@
     "pretty-format": {
       "react-is": "19.0.0"
     },
-    "react": "^19.0.0"
+    "react": "^19.0.0",
+    "test-exclude": "^8.0.0"
   },
   "scripts": {
     "generate-dependencies": "npm run generate-dependencies --workspaces --if-present",
