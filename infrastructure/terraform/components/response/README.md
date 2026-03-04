@@ -41,9 +41,7 @@
 | <a name="module_sqs_request_inbound_event"></a> [sqs\_request\_inbound\_event](#module\_sqs\_request\_inbound\_event) | https://github.com/NHSDigital/nhs-notify-shared-modules/releases/download/v2.0.20/terraform-sqs.zip | n/a |
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_request_inbound_event_subscriber_anomaly_alarm"></a> [request\_inbound\_event\_subscriber\_anomaly\_alarm](#output\_request\_inbound\_event\_subscriber\_anomaly\_alarm) | Request inbound event subscriber anomaly detection alarm details |
+No outputs.
 <!-- vale on -->
 <!-- markdownlint-enable -->
 <!-- END_TF_DOCS -->
